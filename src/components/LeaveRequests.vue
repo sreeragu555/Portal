@@ -71,11 +71,20 @@ created(){
                                  dbref.get().then(snapshot=>{
                                      let i=0
                                     snapshot.forEach(emp => {
+                                    
+                                    var data = emp.data()
+                                  data.collection_id=emp.id
+                                 data.To_Date =emp.data().To_Date.toDate()
+                                 data.From_Date=emp.data().From_Date.toDate()
+                                 
+                                    this.leaves.push(data)
                                      //   console.log(emp)
+                                     /*
                                  this.leaves[i]=emp.data()
                                  this.leaves[i].collection_id=emp.id
                                  this.leaves[i].To_Date=this.leaves[i].To_Date.toDate()
                                  this.leaves[i].From_Date=this.leaves[i].From_Date.toDate()
+                                 */
                                  this.loadedData=true
                                  console.log(leaves)
                                  i++
